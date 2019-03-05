@@ -5,10 +5,10 @@ from mysql.connector import errorcode
 
 class dbLoader:
     def __init__(self):
-    
+
         try:
-            self.cnx = mysql.connector.connect(host='localhost',user='root', password='olaola.',database='dacdb')
-            self.cur = self.cnx.cursor(buffered=True)
+            self.connector = mysql.connector.connect(host='localhost',user='root', password='olaola.',database='dacdb')
+            self.cursor = self.connector.cursor(buffered=True)
 
         except errorcode as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
